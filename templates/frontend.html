@@ -12,11 +12,15 @@
     <div class="chat-container">
         <div id="chat-box">
         </div>
-        <input type="text" id="user-input" placeholder="Type your message here...">
-        <button onclick="sendMessage()"> Send </button>
+
+        <form>
+            <input type="text" id="user-input" placeholder="Type your message here...">
+            <button type="submit" onclick="sendMessage(event)">Send</button>
+        </form>
     </div>
     <script>
-        async function sendMessage() {
+        async function sendMessage(event) {
+            event.preventDefault();
             const userInput = document.getElementById("user-input").value;
             if (userInput.trim() === "") return;
 
@@ -29,7 +33,6 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userInput })
             });
-
 
             const data = await response.json();
 
