@@ -1,0 +1,9 @@
+.vscode
+.DS_Store
+
+firebase_app_setup.py
+BoTvert.Chats.json
+BoTvert.Users.json
+
+config
+
